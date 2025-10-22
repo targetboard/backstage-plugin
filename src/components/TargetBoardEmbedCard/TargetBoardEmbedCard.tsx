@@ -1,5 +1,5 @@
-import { InfoCard } from '@backstage/core-components';
-import { useEffect, useState } from 'react';
+import { InfoCard } from "@backstage/core-components";
+import { useEffect, useState } from "react";
 
 export type TargetBoardEmbedCardProps = {
   embedId: string;
@@ -12,11 +12,11 @@ export type TargetBoardEmbedCardProps = {
 };
 
 export const TargetBoardEmbedCard = ({
-  title = 'TargetBoard Card',
-  domain = 'https://app.targetboard.ai',
+  title,
+  domain = "https://app.targetboard.ai",
   embedId,
   apiKey,
-  height = '480px',
+  height = "480px",
   maxHeight,
   iFrameAllow,
 }: TargetBoardEmbedCardProps) => {
@@ -31,17 +31,17 @@ export const TargetBoardEmbedCard = ({
   }, []);
 
   const startListener = () => {
-    if (typeof window === 'undefined') return;
-    window.addEventListener('message', onMessage);
+    if (typeof window === "undefined") return;
+    window.addEventListener("message", onMessage);
   };
 
   const stopListener = () => {
-    if (typeof window === 'undefined') return;
-    window.removeEventListener('message', onMessage);
+    if (typeof window === "undefined") return;
+    window.removeEventListener("message", onMessage);
   };
 
   const onMessage = (event: MessageEvent) => {
-    if (event.data.type === 'EMBED_SIZE') {
+    if (event.data.type === "EMBED_SIZE") {
       // console.log('Received message:', event.data);
       if (event.data.frameId === id && event.data.height) {
         setFrameHeight(`${event.data.height}px`);
@@ -54,7 +54,7 @@ export const TargetBoardEmbedCard = ({
       <iframe
         id={id}
         src={`${domain}/embed/${embedId}?apiKey=${apiKey}&frameId=${id}`}
-        style={{ width: '100%', height: frameHeight, maxHeight, border: 0 }}
+        style={{ width: "100%", height: frameHeight, maxHeight, border: 0 }}
         allow={iFrameAllow}
         loading="lazy"
         allowFullScreen

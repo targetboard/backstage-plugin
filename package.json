@@ -1,6 +1,6 @@
 {
   "name": "@targetboard/backstage-plugin",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "Apache-2.0",
   "description": "Backstage plugin for TargetBoard.ai components",
   "repository": "github:rocket-board-com/backstage-plugin",
@@ -20,7 +20,12 @@
   ],
   "backstage": {
     "role": "frontend-plugin",
-    "pluginId": "targetboard"
+    "pluginId": "targetboard",
+    "pluginPackages": {
+      "packages": [
+        "."
+      ]
+    }
   },
   "sideEffects": false,
   "scripts": {
@@ -31,7 +36,7 @@
     "clean": "backstage-cli package clean",
     "prepack": "backstage-cli package prepack",
     "postpack": "backstage-cli package postpack",
-    "prepublishOnly": "npm run clean && npm run build"
+    "prepublishOnly": "npm run clean && yarn install && npm install && yarn tsc && yarn build && npm run build && npm pack"
   },
   "peerDependencies": {
     "@backstage/core-plugin-api": "^1.11.1",
