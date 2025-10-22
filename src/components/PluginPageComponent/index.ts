@@ -1,0 +1,1 @@
+export { PluginPageComponent } from './PluginPageComponent';

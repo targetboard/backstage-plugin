@@ -1,0 +1,24 @@
+{
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "declaration": true,
+    "declarationDir": "dist-types/src",
+    "emitDeclarationOnly": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    "skipLibCheck": true
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "@targetboard/backstage-plugin",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "description": "Backstage plugin for TargetBoard.ai components",
+  "repository": "github:rocket-board-com/backstage-plugin",
+  "homepage": "https://github.com/rocket-board-com/backstage-plugin",
+  "private": false,
+  "main": "dist/index.ts",
+  "module": "dist/index.esm.js",
+  "types": "dist-types/src/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "backstage",
+    "backstage-plugin",
+    "developer-portal",
+    "targetboard"
+  ],
+  "backstage": {
+    "role": "frontend-plugin",
+    "pluginId": "targetboard"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "start": "backstage-cli package start",
+    "build": "backstage-cli package build",
+    "lint": "backstage-cli package lint",
+    "test": "backstage-cli package test",
+    "clean": "backstage-cli package clean",
+    "prepack": "backstage-cli package prepack",
+    "postpack": "backstage-cli package postpack",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "peerDependencies": {
+    "@backstage/core-plugin-api": "^1.11.1",
+    "@backstage/frontend-plugin-api": "^0.12.1",
+    "@backstage/core-components": "^0.18.2",
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@backstage/cli": "^0.34.4",
+    "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "@types/react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist",
+    "dist-types",
+    "README.md",
+    "LICENSE"
+  ]
+}
