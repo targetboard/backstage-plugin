@@ -19,9 +19,12 @@ jobs:
       - run: yarn reset
       - run: yarn changeset version
       - run: yarn build
-      - id: readver
+      - name: Read version
+        id: readver
         shell: bash
-        run: node -e "console.log('v=' + require('./package.json').version)" >> "$GITHUB_OUTPUT"
+        run: |
+          VER=$(node -p "require('./package.json').version")
+          echo "v=$VER" >> "$GITHUB_OUTPUT"
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
