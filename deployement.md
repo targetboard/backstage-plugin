@@ -1,18 +1,23 @@
-# Deployment:
-Deployment should run automatically using the GitHub release.yaml action workflow.
+# Deployment and Testing:
 
-## Working with ChangeSets:
-1. Adding a change: `yarn changeset`
-2. Wrapping a version: `yarn changeset version`
+Deployment should run automatically using the GitHub release.yml workflow (under 'actions').<br>
 
-## Manual Deployment to NPM:
+## Working with 'Changesets':
 
-1. Change "version": "0.1.1" to "version": "0.1.2" in package.json
-2. Login to npm: npm login / npm whoami
-3. Publish (builds, packs and publishes the plugin): npm publish --access public // For Beta: npm publish --tag beta --access public
-4. Verify: https://www.npmjs.com/package/@targetboard/backstage-plugin
+1. Adding a change: `yarn changeset` (=> then choose version level and comment)
+2. Wrapping a version: `yarn changeset version` (Runs automatically when pushing to `main`)
 
-## How to install and test Backstage:
+### Manual Deployment to NPM (optional):
+
+This "Manual Deployment" section can be skipped.<br>
+It's only if you want to deploy manually to NPMjs.
+
+1. Change "version": "0.1.1" to "version": "0.1.2" in package.json (Only when not using `yarn changeset version`)
+2. Login to npm: `npm login` / `npm whoami`
+3. Publish (builds, packs and publishes the plugin): `npm publish --access public` // For Beta: `npm publish --tag beta --access public`
+4. Verify deployment: https://www.npmjs.com/package/@targetboard/backstage-plugin
+
+## Backstage - Install and test plugin:
 
 ### New installation:
 
