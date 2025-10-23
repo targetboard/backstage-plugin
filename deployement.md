@@ -1,6 +1,16 @@
 # Deployment and Testing:
 
-Deployment should run automatically using the GitHub release.yml workflow (under 'actions').<br>
+Deployment runs automatically using the GitHub release.yml workflow (under 'actions').<br>
+Release workflow:
+
+1. Check for changeset updates
+   1. If no updates are available, do nothing
+   2. Else, continue deployment
+2. Clean and rebuild package
+3. Read package.json current version
+4. Deploy Package to NPM with new release.
+5. Save version and changelog updates back to git.
+6. Create tag and new release in GitHub.
 
 ## Working with 'Changesets':
 
@@ -16,6 +26,8 @@ It's only if you want to deploy manually to NPMjs.
 2. Login to npm: `npm login` / `npm whoami`
 3. Publish (builds, packs and publishes the plugin): `npm publish --access public` // For Beta: `npm publish --tag beta --access public`
 4. Verify deployment: https://www.npmjs.com/package/@targetboard/backstage-plugin
+
+---
 
 ## Backstage - Install and test plugin:
 
