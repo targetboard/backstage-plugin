@@ -1,4 +1,11 @@
-# Deployment to NPM:
+# Deployment:
+Deployment should run automatically using the GitHub release.yaml action workflow.
+
+## Working with ChangeSets:
+1. Adding a change: `yarn changeset`
+2. Wrapping a version: `yarn changeset version`
+
+## Manual Deployment to NPM:
 
 1. Change "version": "0.1.1" to "version": "0.1.2" in package.json
 2. Login to npm: npm login / npm whoami
@@ -11,7 +18,7 @@
 
 1. Install Backstage: `npx @backstage/create-app@latest` => Provide app name.
 2. Go inside the installation folder: `cd app-name`.
-3. Install the pluign: `yarn --cwd packages/app add @targetboard/backstage-plugin`.
+3. Install the plugin: `yarn --cwd packages/app add @targetboard/backstage-plugin`.
 4. Run backstage: `yarn start`. (Runs on: http://localhost:3000/)
 
 ### Within Backstage:
