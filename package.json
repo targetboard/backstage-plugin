@@ -1,6 +1,6 @@
 {
   "name": "@targetboard/backstage-plugin",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "license": "Apache-2.0",
   "description": "Backstage plugin for TargetBoard.ai components",
   "repository": "github:rocket-board-com/backstage-plugin",
@@ -30,25 +30,32 @@
   "sideEffects": false,
   "scripts": {
     "start": "backstage-cli package start",
+    "start:dev": "APP_CONFIG=app-config.yaml backstage-cli package start",
     "build": "backstage-cli package build",
     "lint": "backstage-cli package lint",
     "test": "backstage-cli package test",
     "clean": "backstage-cli package clean",
+    "reset": "rm -rf node_modules .cache dist dist-types && yarn install && yarn tsc",
     "prepack": "backstage-cli package prepack",
     "postpack": "backstage-cli package postpack",
-    "prepublishOnly": "npm run clean && yarn install && npm install && yarn tsc && yarn build && npm run build && npm pack"
+    "prepublishOnly": "yarn reset && yarn build && yarn pack"
   },
   "peerDependencies": {
+    "@backstage/core-components": "^0.18.2",
     "@backstage/core-plugin-api": "^1.11.1",
     "@backstage/frontend-plugin-api": "^0.12.1",
-    "@backstage/core-components": "^0.18.2",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@backstage/cli": "^0.34.4",
+    "@backstage/dev-utils": "^1.1.16",
+    "@changesets/cli": "^2.29.7",
     "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "@types/react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-router-dom": "^7.9.4",
     "typescript": "^5.0.0"
   },
   "files": [

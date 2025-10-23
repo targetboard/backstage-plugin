@@ -1,0 +1,6 @@
+app:
+  title: TargetBoard Plugin
+  baseUrl: http://localhost:3000
+
+organization:
+  name: TargetBoard

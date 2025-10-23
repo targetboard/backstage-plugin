@@ -54,7 +54,13 @@ export const TargetBoardEmbedCard = ({
       <iframe
         id={id}
         src={`${domain}/embed/${embedId}?apiKey=${apiKey}&frameId=${id}`}
-        style={{ width: "100%", height: frameHeight, maxHeight, border: 0 }}
+        style={{
+          width: "100%",
+          height: frameHeight,
+          maxHeight,
+          border: 0,
+          borderRadius: "4px",
+        }}
         allow={iFrameAllow}
         loading="lazy"
         allowFullScreen
