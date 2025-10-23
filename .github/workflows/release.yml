@@ -18,9 +18,10 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: yarn reset
       - run: yarn changeset version
-      - id: readver
-        run: echo "v=$(node -p \"require('./package.json').version\")" >> "$GITHUB_OUTPUT"
       - run: yarn build
+      - id: readver
+        shell: bash
+        run: node -e "console.log('v=' + require('./package.json').version)" >> "$GITHUB_OUTPUT"
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
