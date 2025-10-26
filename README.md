@@ -1,8 +1,8 @@
 # TargetBoard Backstage Plugin
 
-Embed interactive **TargetBoard** dashboards and metric cards directly inside your [Backstage](https://backstage.io) developer portal.
+Embed interactive **TargetBoard** dashboards and metric cards directly inside your [Backstage](https://backstage.io) Developer portal.
 
-This plugin lets you visualize real-time performance metrics, KPIs, and dashboards from your TargetBoard workspace without leaving Backstage.
+The TargetBoard plugin brings real-time delivery intelligence to Backstage—so your engineering teams can view performance metrics, KPIs, and dashboards from TargetBoard without leaving their workflow.
 
 ---
 <br />
@@ -81,7 +81,7 @@ You can embed either a Board or a Metric Card with the same component, using the
 ---
 <br />
 
-## 🧱 Props
+## 🧱 Component Props
 
 | Prop | Type | Required | Description |
 |---|---|---|---|
