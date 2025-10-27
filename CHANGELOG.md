@@ -1,5 +1,11 @@
 # @targetboard/backstage-plugin
 
+## 0.1.11
+
+### Patch Changes
+
+- 1505fe1: Update repo to renamed path: targetboard
+
 ## 0.1.10
 
 ### Patch Changes
