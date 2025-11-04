@@ -1,5 +1,5 @@
 import { InfoCard } from "@backstage/core-components";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export type TargetBoardEmbedCardProps = {
   embedId: string;
@@ -23,31 +23,32 @@ export const TargetBoardEmbedCard = ({
   const id = `embeddable-${embedId}`;
   const [frameHeight, setFrameHeight] = useState(height);
 
-  useEffect(() => {
-    startListener();
-    return () => {
-      stopListener();
-    };
-  }, []);
-
-  const startListener = () => {
-    if (typeof window === "undefined") return;
-    window.addEventListener("message", onMessage);
-  };
-
-  const stopListener = () => {
-    if (typeof window === "undefined") return;
-    window.removeEventListener("message", onMessage);
-  };
-
-  const onMessage = (event: MessageEvent) => {
+  const onMessage = useCallback((event: MessageEvent) => {
     if (event.data.type === "EMBED_SIZE") {
       // console.log('Received message:', event.data);
       if (event.data.frameId === id && event.data.height) {
         setFrameHeight(`${event.data.height}px`);
       }
     }
-  };
+  }, []);
+
+  const startListener = useCallback(() => {
+    if (typeof window === "undefined") return;
+    window.removeEventListener("message", onMessage);
+    window.addEventListener("message", onMessage);
+  }, [onMessage]);
+
+  const stopListener = useCallback(() => {
+    if (typeof window === "undefined") return;
+    window.removeEventListener("message", onMessage);
+  }, [onMessage]);
+
+  useEffect(() => {
+    startListener();
+    return () => {
+      stopListener();
+    };
+  }, [startListener, stopListener]);
 
   return (
     <InfoCard title={title}>

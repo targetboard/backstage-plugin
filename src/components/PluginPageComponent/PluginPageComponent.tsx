@@ -9,14 +9,13 @@ export const PluginPageComponent = () => (
     </Header>
     <Content>
       <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-        <div style={{ flex: 1, height: "100%" }}>
+        <div style={{ flex: 1, height: "100%", gap: "16px" }}>
           <TargetBoardEmbedCard
             embedId="{embedId}"
             apiKey="{apiKey}"
             title="Embedded Metric"
           />
 
-          <div>&nbsp;</div>
           <TargetBoardEmbedCard
             embedId="{embedId}"
             apiKey="{apiKey}"
