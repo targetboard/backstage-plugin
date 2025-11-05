@@ -1,5 +1,11 @@
 # @targetboard/backstage-plugin
 
+## 0.1.12
+
+### Patch Changes
+
+- Update TargetBoardEmbedCard - prevent rerender issues
+
 ## 0.1.11
 
 ### Patch Changes
