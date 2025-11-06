@@ -1,5 +1,11 @@
 # @targetboard/backstage-plugin
 
+## 0.1.13
+
+### Patch Changes
+
+- Updated README file
+
 ## 0.1.12
 
 ### Patch Changes
