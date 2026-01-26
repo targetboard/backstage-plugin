@@ -1,5 +1,11 @@
 # @targetboard/backstage-plugin
 
+## 0.1.14
+
+### Patch Changes
+
+- Update Backstage and React-dom libs
+
 ## 0.1.13
 
 ### Patch Changes
